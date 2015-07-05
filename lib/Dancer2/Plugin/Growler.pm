@@ -61,7 +61,9 @@ on_plugin_import {
         # ?TODO/YAGNI? do growl() and growl_*() in TT also?
         Dancer2::Core::Hook->new(
             name => 'before_template_render',
-            code => sub { $_[0]->{growls} ||= growls( $dsl, @_ ) },
+            code => sub {
+                $_[0]->{growls} = sub { $dsl->growls(@_) }
+            },
         )
     );
 };
