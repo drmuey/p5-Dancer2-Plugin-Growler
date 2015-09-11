@@ -20,6 +20,7 @@ sub _growl {
         # }
     }
     push @{ $dsl->app->session->read('growls') }, { message => $msg, options => $args };
+    $dsl->app->session->write( 'growls', $dsl->app->session->read('growls') );
 }
 
 register growl => \&_growl;
@@ -48,7 +49,7 @@ register growls => sub {
     my $dsl = shift;
     return if !$dsl->app->session->read('growls');
     my @growls = @{ $dsl->app->session->read('growls') };
-    @{ $dsl->app->session->read('growls') } = ();
+    $dsl->app->session->write( 'growls', [] );
     return \@growls;
 };
 
