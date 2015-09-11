@@ -5,7 +5,7 @@ use warnings;
 
 use Dancer2::Plugin;
 
-$Dancer2::Plugin::Growler::VERSION = '0.02';
+$Dancer2::Plugin::Growler::VERSION = '0.03';
 
 sub _growl {
     my ( $dsl, $msg, $args ) = @_;
@@ -83,7 +83,7 @@ Dancer2::Plugin::Growler - Growl multiple messages of varying types to the user 
 
 =head1 VERSION
 
-This document describes Dancer2::Plugin::Growler version 0.02
+This document describes Dancer2::Plugin::Growler version 0.03
 
 =head1 SYNOPSIS
 
